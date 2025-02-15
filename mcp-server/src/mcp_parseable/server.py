@@ -45,12 +45,12 @@ WORKFLOWS = {
     WorkflowType.WRITE_LATENCY: Workflow(
         type=WorkflowType.WRITE_LATENCY,
         description="Monitor PostgreSQL write query performance patterns",
-        monitor_func=dummy_write_latency
+        monitor_func=lambda: analyzer.analyze_write_latency("10m")
     ),
     WorkflowType.STORAGE_GROWTH: Workflow(
         type=WorkflowType.STORAGE_GROWTH,
         description="Monitor PostgreSQL storage growth patterns",
-        monitor_func=dummy_storage_growth
+         monitor_func=lambda: analyzer.analyze_db_size("10m")
     )
 }
 
